@@ -64,6 +64,46 @@ rag_final.py       命令行版本完整 RAG 流程
 rag_web.py         Streamlit Web 页面版本
 deepseek_chat.py   DeepSeek API 调用示例
 ai_web_chat.py     简单 Web 对话测试代码
+
+配置文件说明
+
+.gitignore
+
+`.gitignore` 用于配置 Git 忽略规则，防止一些不应该上传到 GitHub 的文件被提交到远程仓库。
+
+本项目中主要忽略了 API Key、本地环境配置、Python 缓存文件、VS Code 本地配置、虚拟环境和日志文件。例如：
+
+* `API-KEY.txt`：用于存放本地 API Key，避免敏感信息泄露
+* `.env`：用于存放环境变量配置
+* `__pycache__/` 和 `*.pyc`：Python 自动生成的缓存文件
+* `.vscode/`：VS Code 本地编辑器配置
+* `.venv/` 和 `venv/`：Python 虚拟环境目录
+* `*.log`：程序运行日志文件
+
+通过 `.gitignore` 可以保证 GitHub 仓库更加干净，同时避免上传敏感信息。
+
+依赖说明
+requirements.txt
+
+`requirements.txt` 用于记录项目运行所需的 Python 第三方依赖库。
+
+其他用户从 GitHub 下载项目后，可以通过以下命令快速安装依赖：
+
+
+pip install -r requirements.txt
+
+本项目中主要依赖如下：
+
+* `streamlit`：用于搭建 Web 可视化交互页面
+* `pypdf`：用于读取和解析 PDF 文档
+* `python-docx`：用于读取 Word 文档内容
+* `sentence-transformers`：用于生成文本向量 Embedding
+* `faiss-cpu`：用于构建本地向量索引并进行相似度检索
+* `numpy`：用于处理向量数组和数值计算
+* `requests`：用于调用 DeepSeek API，获取大模型回答
+
+通过 `requirements.txt`，项目可以更方便地在其他环境中复现和运行。
+
 安全说明
 
 本项目不会上传 API Key。运行时需要用户在本地输入自己的 DeepSeek API Key。
